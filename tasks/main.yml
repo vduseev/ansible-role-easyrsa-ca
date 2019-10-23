@@ -1,9 +1,16 @@
 ---
 # tasks file for easyrsa-ca
 
-- name: Include easyrsa role to ensure correct EasyRSA 3.x installation
-  include_role:
-    name: vduseev.easyrsa
+#- name: Include easyrsa role to ensure correct EasyRSA 3.x installation
+  #include_role:
+    #name: vduseev.easyrsa
+
+- name: Check if certificate autority already exists
+  command: easyrsa show-ca
+  ignore_errors: true
+  register: ca_info
+  failed_when: ca_info.rc == 2
 
 - name: Build certificate authority
   command: easyrsa --batch build-ca nopass
+  when: "'Missing expected CA file' in ca_info.stderr"
