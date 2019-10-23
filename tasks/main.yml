@@ -10,6 +10,7 @@
   ignore_errors: true
   register: ca_info
   failed_when: ca_info.rc == 2
+  changed_when: false
 
 - name: Build certificate authority
   command: easyrsa --batch build-ca nopass
