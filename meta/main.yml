@@ -1,0 +1,25 @@
+galaxy_info:
+  role_name: easyrsa-ca
+  author: vduseev
+  description: >
+    Sets up a certificate authority using easyrsa 3.x.
+    Depends on easyrsa binary available in PATH.
+  company: Sailplay
+  license: MIT
+
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+
+  galaxy_tags:
+    - system
+    - networking
+    - easyrsa
+    - pki
+    - ca
+    - vpn
+
+dependencies:
+  - vduseev.easyrsa
