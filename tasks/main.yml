@@ -1,2 +1,9 @@
 ---
 # tasks file for easyrsa-ca
+
+- name: Include easyrsa role to ensure correct EasyRSA 3.x installation
+  include_role:
+    name: vduseev.easyrsa
+
+- name: Build certificate authority
+  command: easyrsa --batch build-ca nopass
