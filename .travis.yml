@@ -15,6 +15,8 @@ before_script:
   - cd ../
   - mv ansible-role-$ROLE_NAME vduseev.$ROLE_NAME
   - cd vduseev.$ROLE_NAME
+  # Install galaxy dependencies
+  - ansible-galaxy install vduseev.easyrsa
 
 script:
   - molecule test
